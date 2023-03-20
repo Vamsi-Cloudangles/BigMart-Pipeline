@@ -1,0 +1,47 @@
+pipeline{
+    agent any
+
+    stages{
+        stage("Checkout"){
+            steps{
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Vamsi-Cloudangles/MLAngles-Lungcancer.git']]])
+            }
+        }
+        stage("build"){
+            steps{
+                git branch: 'main', url: 'https://github.com/Vamsi-Cloudangles/MLAngles-Lungcancer.git'
+            }
+        }
+        stage("load data"){
+            steps{
+                sh 'python3 loaddata.py'
+            }
+        }
+        stage("data analysis"){
+            steps{
+                sh 'python3 dataanalysis.py'
+            }
+        }
+        stage("data preprocessing"){
+            steps{
+                sh 'python3 datapreprocessing.py'
+            }
+        }
+        stage("data visualization"){
+            steps{
+                sh 'python3 datavisualization.py'
+            }
+        }
+        stage("feature engineering"){
+            steps{
+                sh 'python3 featureengineering.py'
+            }
+        }
+    }
+    post{
+       
+        always {
+            archiveArtifacts artifacts: 'cleaned_dataset.csv', onlyIfSuccessful: true
+        }
+    }
+}
