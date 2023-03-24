@@ -17,7 +17,7 @@ def data_visualization():
     # Visualize the categorical columns by using the count plot
     for i in categorical_columns:
         fig,ax = plt.subplots(1,1, figsize=(5,4))
-        print(sns.countplot(x=dataset[i][1:]))
+        sns.countplot(x=dataset[i][1:])
     # Visualize the categorical columns by using the pie chart
     for c in categorical_columns:
         fig,plt.pie(dataset[c].value_counts(), labels = dataset[c].unique(), autopct='%1.2f%%')
@@ -25,7 +25,7 @@ def data_visualization():
     # Visualize the numerical columns using the distplot
     for i in numerical_columns:
         fig, ax = plt.subplots(1,1, figsize=(8,4))
-        print(sns.distplot(x = dataset[i][1:]))
+        sns.distplot(x = dataset[i][1:])
     # Finding the outliers using the boxplot
     for n in numerical_columns:
         plt.boxplot(dataset[n])
