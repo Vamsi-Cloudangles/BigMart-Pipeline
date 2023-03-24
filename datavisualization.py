@@ -18,6 +18,7 @@ def data_visualization():
     for i in categorical_columns:
         fig,ax = plt.subplots(1,1, figsize=(5,4))
         sns.countplot(x=dataset[i][1:])
+        fig.savefig(f'{i}fig.png')
     # Visualize the categorical columns by using the pie chart
     for c in categorical_columns:
         fig,plt.pie(dataset[c].value_counts(), labels = dataset[c].unique(), autopct='%1.2f%%')
