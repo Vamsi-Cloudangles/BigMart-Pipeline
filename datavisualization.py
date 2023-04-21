@@ -18,9 +18,9 @@ def data_visualization():
         sns.countplot(x=dataset[i][1:])
         fig.show()
     # Visualize the categorical columns by using the pie chart
-    for c in categorical_columns:
-        fig,plt.pie(dataset[c].value_counts(), labels = dataset[c].unique(), autopct='%1.2f%%')
-        plt.show()
+#     for c in categorical_columns:
+#         fig,plt.pie(dataset[c].value_counts(), labels = dataset[c].unique(), autopct='%1.2f%%')
+#         plt.show()
     # Visualize the numerical columns using the distplot
     for i in numerical_columns:
         fig, ax = plt.subplots(1,1, figsize=(8,4))
