@@ -30,6 +30,13 @@ def data_visualization():
         plt.boxplot(dataset[n])
         plt.xlabel(n)
         plt.show()
+    # Visualize the Correlation Matrix
+    corr = dataset.corr()
+    fig, ax = plt.subplots(figsize=(10, 8))
+    sns.heatmap(corr, cmap='RdBu', annot = True, fmt=".2f")
+    plt.xticks(range(len(corr.columns)), corr.columns);
+    plt.yticks(range(len(corr.columns)), corr.columns)
+    plt.show()
 
     Q1 = dataset['Item_Visibility'].quantile(0.25)
     Q3 = dataset['Item_Visibility'].quantile(0.75)
