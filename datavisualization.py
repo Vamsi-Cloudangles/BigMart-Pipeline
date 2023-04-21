@@ -26,10 +26,10 @@ def data_visualization():
         fig, ax = plt.subplots(1,1, figsize=(8,4))
         sns.distplot(x = dataset[i][1:])
     # Finding the outliers using the boxplot
-    for n in numerical_columns:
-        plt.boxplot(dataset[n])
-        plt.xlabel(n)
-        plt.show()
+#     for n in numerical_columns:
+#         plt.boxplot(dataset[n])
+#         plt.xlabel(n)
+#         plt.show()
     # Visualize the Correlation Matrix
     corr = dataset.corr()
     fig, ax = plt.subplots(figsize=(10, 8))
