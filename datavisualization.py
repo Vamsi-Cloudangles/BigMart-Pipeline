@@ -14,26 +14,6 @@ def data_visualization():
         else:
             numerical_columns.append(col)
 
-
-    # # Visualize the categorical columns by using the count plot
-    # for i in categorical_columns:
-    #     fig,ax = plt.subplots(1,1, figsize=(5,4))
-    #     sns.countplot(x=dataset[i][1:])
-    #     # fig.savefig(f'{i}fig.png')
-    # # Visualize the categorical columns by using the pie chart
-    # for c in categorical_columns:
-    #     fig,plt.pie(dataset[c].value_counts(), labels = dataset[c].unique(), autopct='%1.2f%%')
-    #     plt.show()
-    # # Visualize the numerical columns using the distplot
-    # for i in numerical_columns:
-    #     fig, ax = plt.subplots(1,1, figsize=(8,4))
-    #     sns.distplot(x = dataset[i][1:])
-    # # Finding the outliers using the boxplot
-    # for n in numerical_columns:
-    #     plt.boxplot(dataset[n])
-    #     plt.xlabel(n)
-    #     plt.show()
-
     plt.figure(figsize=(6,4))
     sns.countplot(x='Item_Fat_Content' , data=dataset ,palette='mako')
     plt.xlabel('Item_Fat_Content', fontsize=14)
@@ -169,19 +149,10 @@ def data_visualization():
     for i in categorical_columns:
         plt.subplots(1,1, figsize=(5,4))
         sns.countplot(x=dataset[i][1:])
-    # Visualize the categorical columns by using the pie chart
-    # for c in categorical_columns:
-    #   plt.pie(dataset[c].value_counts(), labels = dataset[c].unique(), autopct='%1.2f%%')
-        # plt.show()
     # Visualize the numerical columns using the distplot
     for i in numerical_columns:
         plt.subplots(1,1, figsize=(8,4))
         sns.distplot(x = dataset[i][1:])
-    # Finding the outliers using the boxplot
-    # for n in numerical_columns:
-    #     plt.boxplot(dataset[n])
-    #     plt.xlabel(n)
-        # plt.show()
 
     corr = dataset.corr()
     fig, ax = plt.subplots(figsize=(10, 8))
