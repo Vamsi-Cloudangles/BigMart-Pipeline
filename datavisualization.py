@@ -13,8 +13,7 @@ def data_visualization():
             categorical_columns.append(col)
         else:
             numerical_columns.append(col)
-    print(categorical_columns) 
-    print(numerical_columns)
+
 
     # # Visualize the categorical columns by using the count plot
     # for i in categorical_columns:
@@ -165,7 +164,31 @@ def data_visualization():
 
     plt.subplot(2,3,5)
     sns.boxplot(dataset['Item_Outlet_Sales'])
+    
+    # Visualize the categorical columns by using the count plot
+    for i in categorical_columns:
+        plt.subplots(1,1, figsize=(5,4))
+        sns.countplot(x=dataset[i][1:])
+    # Visualize the categorical columns by using the pie chart
+    # for c in categorical_columns:
+    #   plt.pie(dataset[c].value_counts(), labels = dataset[c].unique(), autopct='%1.2f%%')
+        # plt.show()
+    # Visualize the numerical columns using the distplot
+    for i in numerical_columns:
+        plt.subplots(1,1, figsize=(8,4))
+        sns.distplot(x = dataset[i][1:])
+    # Finding the outliers using the boxplot
+    # for n in numerical_columns:
+    #     plt.boxplot(dataset[n])
+    #     plt.xlabel(n)
+        # plt.show()
 
+    corr = dataset.corr()
+    fig, ax = plt.subplots(figsize=(10, 8))
+    sns.heatmap(corr, cmap='RdBu', annot = True, fmt=".2f")
+    plt.xticks(range(len(corr.columns)), corr.columns);
+    plt.yticks(range(len(corr.columns)), corr.columns)
+    plt.show()
     Q1 = dataset['Item_Visibility'].quantile(0.25)
     Q3 = dataset['Item_Visibility'].quantile(0.75)
     IQR = Q3 - Q1
