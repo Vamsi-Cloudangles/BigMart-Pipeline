@@ -72,24 +72,6 @@ def data_visualization():
 
     pl=sns.violinplot(x='Outlet_Size',y='Item_Outlet_Sales',data=dataset,)
 
-    plt.figure(figsize=(27,10))
-    sns.barplot('Item_Type' ,'Item_Outlet_Sales', data=dataset ,palette='gist_rainbow_r')
-    plt.xlabel('Item_Type', fontsize=14)
-    plt.legend()
-    plt.show()
-
-    plt.figure(figsize=(27,10))
-    sns.barplot('Outlet_Identifier' ,'Item_Outlet_Sales', data=dataset ,palette='gist_rainbow')
-    plt.xlabel('Outlet_Identifier', fontsize=14)
-    plt.legend()
-    plt.show()
-
-    plt.figure(figsize=(10,5))
-    sns.barplot('Outlet_Type' ,'Item_Outlet_Sales', data=dataset ,palette='nipy_spectral')
-    plt.xlabel('Outlet_Type', fontsize=14)
-    plt.legend()
-    plt.show()
-
     plt.figure(figsize = (10,9))
     plt.subplot(311)
     sns.boxplot(x='Outlet_Size', y='Item_Outlet_Sales', data=dataset, palette="Set1")
