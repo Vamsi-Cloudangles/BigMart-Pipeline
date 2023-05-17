@@ -18,6 +18,6 @@ def feature_engineering():
         dataset[c] = le.fit_transform(dataset[c])
     # Performing the one hot encoding for some categorical values which contains less than 3 unique values
     dataset = pd.get_dummies(dataset, columns=['Item_Fat_Content','Outlet_Location_Type','Outlet_Size','Outlet_Type'])
-    dataset.to_csv("Bigmart_Sales_cleaned_dataset.csv")
+    dataset.to_csv("Bigmart_Sales_cleaned_dataset.csv", index = False)
     return dataset
 feature_engineering()
