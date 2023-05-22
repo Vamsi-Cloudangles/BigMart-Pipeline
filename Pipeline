@@ -41,7 +41,13 @@ pipeline{
     post{
        
         always {
-            archiveArtifacts artifacts: 'Bigmart_Sales_cleaned_dataset.csv', onlyIfSuccessful: true
+            archiveArtifacts artifacts: 'Bigmart_Sales_cleaned_dataset.csv', onlyIfSuccessful: tru
         }
-    }
+            }
+        stage('Upload to AWS') {
+              steps {
+                  withAWS(region:'us-east-1',credentials:'s3-jenkins-connection') {
+                  sh 'echo "Uploading content with AWS creds"'
+                      s3Upload(pathStyleAccessEnabled: true, payloadSigningEnabled: true, file:'Bigmart_Sales_cleaned_dataset.csv', bucket:'artifacts-jenkins-test')
+                  }
 }
