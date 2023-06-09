@@ -71,12 +71,12 @@ def data_visualization():
     plt.show()
 
     #  Correlation Matrix.......................
-    corr = dataset.corr()
-    plt.subplots(figsize=(10, 10))
-    sns.heatmap(corr, cmap='RdBu', annot = True, fmt=".2f")
-    plt.xticks(range(len(corr.columns)), corr.columns);
-    plt.yticks(range(len(corr.columns)), corr.columns)
-    plt.show()
+#     corrolation = dataset.corr()
+#     plt.subplots(figsize=(10, 10))
+#     sns.heatmap(corrolation, cmap='RdBu', annot = True, fmt=".2f")
+#     plt.xticks(range(len(corrolation.columns)), corrolation.columns);
+#     plt.yticks(range(len(corrolation.columns)), corrolation.columns)
+#     plt.show()
     Q1 = dataset['Item_Visibility'].quantile(0.25)
     Q3 = dataset['Item_Visibility'].quantile(0.75)
     IQR = Q3 - Q1
