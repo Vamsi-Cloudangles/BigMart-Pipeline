@@ -1,6 +1,6 @@
-pandas
+pandas==2.0.0
 numpy
-scikit-learn
-matplotlib
+seaborn==0.12.2
+matplotlib==3.6.3
 seaborn
 
