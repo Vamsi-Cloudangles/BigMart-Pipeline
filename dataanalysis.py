@@ -2,7 +2,7 @@ from loaddata import Load_Data
 def data_analysis():
     dataset = Load_Data()
    # Providing the details of data 
-    print(dataset.columns)
+    print(dataset_df.columns)
     print(dataset.head())
     print(dataset.shape)
     print(dataset.dtypes)
